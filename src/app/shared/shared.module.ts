@@ -4,6 +4,9 @@ import { HeaderComponent } from './components/header/header.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { RouterModule } from '@angular/router';
+import { LoginComponent } from './components/login/login.component';
+import { SignUpComponent } from './components/sign-up/sign-up.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -11,15 +14,20 @@ import { RouterModule } from '@angular/router';
   declarations: [
     HeaderComponent,
     NavbarComponent,
-    FooterComponent
+    FooterComponent,
+    LoginComponent,
+    SignUpComponent
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    ReactiveFormsModule
   ],
   exports: [
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    SignUpComponent,
+    LoginComponent
   ]
 })
 export class SharedModule { }

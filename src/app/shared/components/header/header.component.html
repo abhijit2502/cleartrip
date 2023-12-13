@@ -2,7 +2,7 @@
     <div class="d-flex justify-content-between bd-highlight">
         <div class="p-1 ms-5 bd-highlight logo">ClearTrip</div>
         <div class="p-1 me-5 bd-highlight">
-            <button type="button" class="btn btn-primary px-3">Login/signUp</button>
+            <button type="button" class="btn btn-primary px-3" data-bs-toggle="modal" data-bs-target="#exampleModal">Login/signUp</button>
         </div>
       </div>
 
@@ -12,15 +12,15 @@
               <div class="collapse navbar-collapse " id="navbarNav">
                 <ul class="navbar-nav  d-flex justify-content-around w-100">
                   <li class="nav-item">
-                    <a class="nav-link d-flex flex-column" routerLinkActive="active" routerLink="/flights">
-                      <img src="https://www.pngfind.com/pngs/m/238-2387973_air-png-transparent-background-flight-logo-png-png.png" alt="" width="70" height="70">
-                      <span>Flights</span>
-                    </a>
-                  </li>
-                  <li class="nav-item">
                     <a class="nav-link d-flex flex-column" routerLinkActive="active" routerLink="/hotels">
                       <img src="https://www.freepnglogos.com/uploads/hotel-logo-png/hotel-icon-download-28.png" alt="" width="70" height="70">
                     <span>Hotels</span>  
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link d-flex flex-column" routerLinkActive="active" routerLink="/flights">
+                      <img src="https://www.pngfind.com/pngs/m/238-2387973_air-png-transparent-background-flight-logo-png-png.png" alt="" width="70" height="70">
+                      <span>Flights</span>
                     </a>
                   </li>
                   <li class="nav-item ">
@@ -64,5 +64,25 @@
             </div>
           </nav>
       </div>
+</div>
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title fw-bold" id="exampleModalLabel">{{selectedAction}}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <app-login *ngIf="selectedAction !== 'Sign-Up' " (emitAction)="getAction($event)"></app-login>
+        <app-sign-up  *ngIf="selectedAction == 'Sign-Up' " (emitSignInAction)="getAction($event)"></app-sign-up>
+      </div>
+      <!-- <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div> -->
+    </div>
+  </div>
 </div>
 

@@ -1,0 +1,36 @@
+<div class="container-fluid p-2">
+    <form [formGroup]="signUpForm" (ngSubmit)="signUp()">
+        <div class="mb-3">
+            <label id="id1" class="form-label">UserName</label>
+            <input type="text" class="form-control" id="id1" formControlName="userName">
+          </div>
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Email address</label>
+          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" formControlName="email">
+          <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+        </div>
+        <label for="id2" class="form-label">Mobile No</label>
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" id="2"  formControlName="mobile">
+          <button *ngIf="!displayVerifyOtp && !signUpForm.get('otpVerified')?.value" class="btn btn-outline-secondary" type="button" id="button-addon2" (click)="getOtp()"[disabled]="signUpForm.get('mobile')?.valid">GetOtp</button>
+          <span *ngIf="signUpForm.get('otpVerified')?.value" class="verified-icon"><i class="bi bi-check-circle"></i></span>
+        </div>
+        <ng-container  *ngIf="displayOtpField">
+          <label id="id4" class="form-label">Otp</label>
+          <div class="input-group mb-3">
+              <input type="text" class="form-control" id="id4" [maxLength]="4" (input)="changeOtp($event)">
+              <button *ngIf="displayVerifyOtp" class="btn btn-outline-secondary" type="button" id="button-addon2" (click)="verifyOtp()" >Verify Otp</button>
+            </div>
+            <h6>Time Remaining : {{otpCounter}}</h6>
+        </ng-container>
+        <div class="mb-3">
+          <label id="id1" class="form-label">Password</label>
+          <input type="text" class="form-control" id="id1" formControlName="password">
+        </div>
+        
+        <div class="d-grid gap-2">
+            <button class="btn btn-primary" type="submit">Sign Up</button>
+            <button class="btn btn-primary" type="submit" (click)="navigateToSignIn()">Login</button>
+        </div>
+      </form>
+</div>

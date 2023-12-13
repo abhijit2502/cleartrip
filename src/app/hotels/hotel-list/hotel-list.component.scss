@@ -1,0 +1,36 @@
+.image-container{
+    position: relative;
+    height: 200px;
+    width: 220px;
+    overflow: hidden;
+}
+.border-primary{
+    border:2px solid;
+}
+.image-container img{
+    transition: transform 0.3s;
+}
+
+.image-container:hover{
+    transform: scale(0.9);
+}
+
+.font{
+    font-weight: 700;
+}
+
+.msg{
+    font-weight: 500;
+    color: #a52a2aa8;
+}
+
+.border-left{
+    border-left: 1px solid #dee2e6;
+}
+
+.cursor{
+    cursor: pointer;
+}
+.active{
+    border-bottom:  4px solid #2800ff;
+}
